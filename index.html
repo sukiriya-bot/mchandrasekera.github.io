@@ -5,108 +5,104 @@
 <title>Milan Chandrasekera</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
-
-html { scroll-behavior: smooth; }
 
 body {
   background: #0b1220;
   color: #e6edf3;
-  line-height: 1.6;
 }
 
 /* NAV */
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 20px 50px;
-  background: rgba(11,18,32,0.95);
-  position: sticky;
-  top: 0;
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  background: rgba(11,18,32,0.85);
+  backdrop-filter: blur(10px);
   z-index: 1000;
 }
 
-nav h2 { color: #00d4ff; }
+nav h2 {
+  color: #00d4ff;
+  letter-spacing: 2px;
+}
 
 nav a {
   color: #94a3b8;
   text-decoration: none;
   margin-left: 25px;
+  font-size: 14px;
 }
 
-nav a.active, nav a:hover { color: #00d4ff; }
+nav a:hover { color: #00d4ff; }
 
 /* HERO */
 .hero {
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  max-width: 1100px;
-  margin: auto;
-  padding: 120px 20px;
-  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(rgba(11,18,32,0.8), rgba(11,18,32,1)),
+              url('banner.jpg') center/cover no-repeat;
 }
 
-.hero-text h1 {
-  font-size: 50px;
-  color: #00d4ff;
+.hero-content {
+  max-width: 800px;
 }
 
-.hero-text p {
-  margin-top: 12px;
-  color: #94a3b8;
-  max-width: 650px;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 22px;
-  background: #00d4ff;
-  color: #0b1220;
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-/* PROFILE */
-.profile-pic {
+.hero img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   border: 3px solid #00d4ff;
-  object-fit: cover;
+  margin-bottom: 20px;
 }
 
-/* METRICS */
-.metrics {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
+.hero h1 {
+  font-size: 42px;
+  color: #00d4ff;
 }
 
-/* BANNER */
-.banner img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
+.hero p {
+  margin-top: 12px;
+  color: #94a3b8;
 }
 
-/* SECTIONS */
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+  background: #00d4ff;
+  color: #0b1220;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* SECTION */
 section {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   padding: 80px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-h2 { color: #00d4ff; margin-bottom: 25px; }
-h3 { margin-bottom: 6px; }
+h2 {
+  color: #00d4ff;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
 
 /* CARD */
 .card {
@@ -114,28 +110,47 @@ h3 { margin-bottom: 6px; }
   padding: 25px;
   border-radius: 10px;
   margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(25px);
-  transition: all 0.6s ease;
-}
-
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
+  transition: 0.4s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
 ul { margin-left: 20px; }
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+/* METRICS */
+.metrics {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.metrics h2 {
+  font-size: 32px;
+}
 
 /* FOOTER */
 footer {
   text-align: center;
   padding: 30px;
   color: #94a3b8;
+}
+
+/* MOBILE */
+@media(max-width: 768px) {
+  .hero h1 { font-size: 30px; }
+  nav { flex-direction: column; }
+  nav div { margin-top: 10px; }
 }
 </style>
 </head>
@@ -146,143 +161,98 @@ footer {
   <h2>MC</h2>
   <div>
     <a href="#about">About</a>
-    <a href="#highlights">Highlights</a>
-    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#media">Media</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-text">
+  <div class="hero-content">
+    <img src="profile.jpg">
     <h1>Milan Chandrasekera</h1>
-    <p>
-      Aviation & Aerospace Executive driving multi-country operations,
-      defence programs, and strategic expansion across global markets.
-    </p>
-    <p style="color:#64748b;">
-      20+ Years Experience | 10+ Countries | FAA Commercial Pilot | PMP
-    </p>
-    <a href="https://www.linkedin.com/in/mchandrasekera/" target="_blank" class="btn">LinkedIn</a>
+    <p>Aviation & Aerospace Executive</p>
+    <p>Driving global operations, defence programs, and international expansion</p>
+
+    <div class="metrics">
+      <div><h2>20+</h2><p>Years</p></div>
+      <div><h2>10+</h2><p>Countries</p></div>
+      <div><h2>Global</h2><p>Defence Work</p></div>
+    </div>
+
+    <a href="https://www.linkedin.com/in/mchandrasekera/" target="_blank" class="btn">Connect on LinkedIn</a>
   </div>
-  <img src="profile.jpg" class="profile-pic">
 </div>
 
-<!-- METRICS -->
-<section>
-  <div class="card metrics">
-    <div><h2>20+</h2><p>Years</p></div>
-    <div><h2>10+</h2><p>Countries</p></div>
-    <div><h2>Global</h2><p>Defence Work</p></div>
-  </div>
-</section>
-
-<div class="banner">
-  <img src="banner.jpg">
-</div>
-
+<!-- ABOUT -->
 <section id="about">
   <h2>About</h2>
   <div class="card">
-    FAA-certified Commercial Pilot and PMP-certified professional with extensive experience across aviation,
-    aerospace, and global operations. Expertise in defence programs, compliance, and international expansion.
+    Senior aviation and aerospace executive with over two decades of leadership across international operations,
+    defence coordination, and aviation training. Proven expertise in scaling organizations globally,
+    managing government partnerships, and executing high-value strategic programs.
   </div>
 </section>
 
-<section id="highlights">
-  <h2>Executive Highlights</h2>
-  <div class="card">
-    <ul>
-      <li>20+ years across aviation and aerospace</li>
-      <li>Operations across 10+ countries</li>
-      <li>Defence programs involving Indian Air Force and HAL</li>
-      <li>Global training and system deployment expertise</li>
-    </ul>
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Strategic Projects</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Global Aviation Expansion</h3>
+      <ul>
+        <li>Expanded training operations across 10+ countries</li>
+        <li>Built international partnerships</li>
+        <li>Developed scalable frameworks</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Defence Program Coordination</h3>
+      <ul>
+        <li>Collaborated with defence institutions</li>
+        <li>Managed regulatory compliance</li>
+        <li>Aligned multi-agency operations</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Flight Training Centre (Proposed)</h3>
+      <ul>
+        <li>Designing aviation university model</li>
+        <li>Focus on international accreditation</li>
+        <li>Scalable multi-program structure</li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
-<section id="skills">
-  <h2>Core Competencies</h2>
-  <div class="card">
-    <ul>
-      <li>Aviation & Aerospace Operations</li>
-      <li>Defence Project Coordination</li>
-      <li>International Business Development</li>
-      <li>Government Liaison & Compliance</li>
-      <li>ISO / AS9100 Quality Systems</li>
-      <li>Project Management (PMP)</li>
-      <li>Training & Academic Development</li>
-      <li>Strategic Planning</li>
-    </ul>
-  </div>
-</section>
-
+<!-- EXPERIENCE -->
 <section id="experience">
   <h2>Professional Experience</h2>
 
   <div class="card">
-    <h3>Manager Operations – Deep Aviation <span style="float:right;">2025 – Present</span></h3>
-    <ul>
-      <li>Managing aerospace manufacturing and defence programs</li>
-    </ul>
+    <h3>Manager Operations – Deep Aviation</h3>
+    <p>Leading aerospace manufacturing and defence programs.</p>
   </div>
 
   <div class="card">
-    <h3>VP International Operations – Aero Aviation Academy <span style="float:right;">2019 – 2025</span></h3>
-    <ul>
-      <li>Scaled operations across 10+ countries</li>
-    </ul>
+    <h3>VP International Operations – Aero Aviation Academy</h3>
+    <p>Scaled global operations and partnerships.</p>
   </div>
 
   <div class="card">
-    <h3>Director Marketing – Sri Lanka Travel Escapes <span style="float:right;">2018 – 2019</span></h3>
-  </div>
-
-  <div class="card">
-    <h3>Consultant – United Ventures <span style="float:right;">2015 – 2018</span></h3>
-  </div>
-
-  <div class="card">
-    <h3>Senior Briefing Officer – Qatar Airways <span style="float:right;">2012 – 2015</span></h3>
-  </div>
-
-  <div class="card">
-    <h3>Cabin Senior – Qatar Airways <span style="float:right;">2004 – 2007</span></h3>
-  </div>
-
-  <div class="card">
-    <h3>Airport Agent – Sri Lankan Airlines <span style="float:right;">2002 – 2004</span></h3>
+    <h3>Qatar Airways</h3>
+    <p>Senior aviation operations and training roles.</p>
   </div>
 
 </section>
 
-<section id="education">
-  <h2>Education & Professional Qualifications</h2>
-  <div class="card">
-    <ul>
-      <li>2025 – ISO 9001 & AS9100D Internal Auditor</li>
-      <li>2024–2026 – MBA</li>
-      <li>2023 – PMP Certification</li>
-      <li>2022 – BSc International Relations</li>
-      <li>2007–2008 – FAA Commercial Pilot</li>
-    </ul>
-  </div>
-</section>
-
-<section id="media">
-  <h2>Media & Academic Mentions</h2>
-  <div class="card">
-    <ul>
-      <li>Contributor to aviation training and academic programs</li>
-      <li>Engaged in international aviation education initiatives</li>
-      <li>Government and institutional collaborations</li>
-    </ul>
-  </div>
-</section>
-
+<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
@@ -291,50 +261,9 @@ footer {
   </div>
 </section>
 
-<section id="references">
-  <h2>References</h2>
-  <div class="card">
-    Professional references available upon request.
-  </div>
-</section>
-
 <footer>
-  © 2026 Milan Chandrasekera <br>
-  <small>Last updated: March 2026</small>
+  © 2026 Milan Chandrasekera
 </footer>
-
-<script>
-const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll', () => {
-  const trigger = window.innerHeight * 0.85;
-  cards.forEach(card => {
-    if (card.getBoundingClientRect().top < trigger) {
-      card.classList.add('show');
-    }
-  });
-});
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    if (scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href").includes(current)) {
-      link.classList.add("active");
-    }
-  });
-});
-</script>
 
 </body>
 </html>
